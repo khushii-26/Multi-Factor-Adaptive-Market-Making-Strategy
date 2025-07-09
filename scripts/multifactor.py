@@ -527,9 +527,7 @@ class AdvancedMultiFactorPMM(ScriptStrategyBase):
         return "\n".join(lines)
 
     def _log_market_state(self, bid_spread: float, ask_spread: float, position_size: float):
-        """Write a concise snapshot of the current order book top levels, liquidity and spreads.
-        This is implemented from scratch (not borrowed from ALT_Maker) so the format is unique to this script.
-        """
+        """Write a concise snapshot of the current order book top levels, liquidity and spreads."""
         try:
             ob = self.connectors[self.exchange].get_order_book(self.trading_pair)
             bids_df, asks_df = ob.snapshot  # Each is a DataFrame
